@@ -461,7 +461,8 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     CGFloat labelWidth = 0.0f;
     
     if(self.statusLabel.text) {
-        CGSize constraintSize = CGSizeMake(200.0f, 300.0f);
+        CGFloat maximumWidth = MIN(320, UIScreen.mainScreen.bounds.size.width - 28 * 2) - SVProgressHUDHorizontalSpacing * 2;
+        CGSize constraintSize = CGSizeMake(maximumWidth, 300.0f);
         labelRect = [self.statusLabel.text boundingRectWithSize:constraintSize
                                                         options:(NSStringDrawingOptions)(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
                                                      attributes:@{NSFontAttributeName: self.statusLabel.font}
